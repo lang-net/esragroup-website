@@ -20,7 +20,7 @@
             <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-navy-900/20"></div>
         </div>
         <div class="container-esra relative z-10 py-12">
-            <div class="max-w-lg" data-reveal x-data="{ p: esraLang }">
+            <div class="max-w-lg" data-reveal>
                 <span class="text-[12.5px] font-bold tracking-widest text-gold" x-text="lang === 'en' ? 'ESRA PROJECTS & LAND' : 'PROJEK & TANAH ESRA'"></span>
                 <h1 class="mt-3 text-3xl font-extrabold leading-tight text-white sm:text-4xl">
                     <span x-text="lang === 'en' ? 'The Projects We Are' : 'Projek Yang Sedang'"></span><br>
