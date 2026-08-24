@@ -67,6 +67,91 @@ window.esraWhy = (lang, i) => ESRA_WHY[lang][i];
 window.esraProc = (lang, i) => ESRA_PROC[lang][i];
 window.esraHelp = (lang, i) => ESRA_HELP[lang][i];
 
+const ESRA_ABOUT = {
+    bm: {
+        aboutKicker: 'TENTANG ESRA GROUP',
+        aboutTitle1: 'Membina Tanah. Mencipta Nilai.', aboutTitle2: 'Membentuk Komuniti.',
+        aboutP1: 'ESRA GROUP merupakan kumpulan syarikat yang memberi fokus kepada tanah, hartanah, pembangunan dan perkhidmatan berkaitan pembangunan.',
+        aboutP2: 'Kami melihat setiap tanah bukan sekadar aset, tetapi sebagai satu peluang untuk mencipta nilai, pembangunan dan pertumbuhan jangka panjang.',
+        aboutP3: 'Melalui pendekatan yang strategik, ESRA menghubungkan keseluruhan ekosistem hartanah — daripada pengenalpastian tanah, acquisition dan Joint Venture (JV), kajian kebolehlaksanaan, perancangan pembangunan, pembangunan projek sehingga pemasaran dan pengurusan hartanah.',
+        aboutP4: 'ESRA dibangunkan dengan matlamat untuk menjadi sebuah organisasi yang bukan sekadar membangunkan projek, tetapi turut membina hubungan jangka panjang dengan pemilik tanah, pembeli, pelabur, rakan strategik dan komuniti.',
+        aboutP5: 'Kami percaya pembangunan yang baik perlu menghasilkan nilai kepada semua pihak — pemilik tanah, pelanggan, pelabur, komuniti dan generasi akan datang.',
+        visionKicker: 'VISI KAMI', visionTitle: 'Membina Nilai Yang Kekal.',
+        visionP1: 'Menjadi sebuah kumpulan pembangunan tanah dan hartanah yang dipercayai, progresif dan mampan, serta dikenali kerana keupayaan kami mengenal pasti potensi tanah dan menukarkannya kepada pembangunan yang memberi nilai jangka panjang.',
+        visionP2: 'Kami bercita-cita membina ESRA sebagai sebuah integrated property and development group yang mempunyai portfolio tanah, projek dan aset di seluruh Malaysia.',
+        missionKicker: 'MISI KAMI',
+        mission: [
+            { t: 'Buka Potensi Tanah', b: 'Mengenal pasti dan membuka potensi tanah melalui kajian, perancangan dan strategi pembangunan yang tepat.' },
+            { t: 'Cipta Nilai Yang Mampan', b: 'Membangunkan projek yang memberi nilai ekonomi dan manfaat jangka panjang kepada pemilik tanah, pelanggan, pelabur dan komuniti.' },
+            { t: 'Bina Kerjasama Dipercayai', b: 'Membina hubungan dan kerjasama jangka panjang bersama pemilik tanah, rakan strategik, profesional, kontraktor dan pelabur.' },
+            { t: 'Hasilkan Pembangunan Berkualiti', b: 'Mengurus dan membangunkan projek secara profesional dengan memberi perhatian kepada kualiti, perancangan, kos dan pelaksanaan.' },
+            { t: 'Bina Ekosistem Tanah & Hartanah Yang Kukuh', b: 'Membina ekosistem ESRA yang menghubungkan tanah, hartanah, pembangunan, konsultansi, pelaburan dan perkhidmatan berkaitan.' },
+            { t: 'Bina Untuk Generasi Akan Datang', b: 'Mewujudkan pembangunan dan aset yang mampu terus memberikan nilai kepada komuniti dan generasi akan datang.' },
+        ],
+        purposeKicker: 'TUJUAN KAMI',
+        purposeTitle1: 'Menukar Tanah Kepada Peluang.', purposeTitle2: 'Menukar Peluang Kepada Nilai.',
+        purposeP1: 'Tujuan ESRA adalah untuk membantu tanah mencapai potensi terbaiknya dan menghasilkan pembangunan yang mempunyai nilai sebenar.',
+        purposeP2: 'Kami mahu menjadi jambatan antara:',
+        promiseKicker: 'JANJI BRAND KAMI', promiseTitle: 'Profesional. Dipercayai. Progresif.',
+        promiseSub: 'Setiap projek ESRA dibangunkan berdasarkan tiga prinsip utama:',
+        promise: [
+            { t: 'Profesional', b: 'Mengurus setiap peluang dan projek dengan sistem, struktur dan disiplin yang profesional.' },
+            { t: 'Dipercayai', b: 'Menjaga amanah pemilik tanah, pelanggan, pelabur dan rakan kerjasama.' },
+            { t: 'Progresif', b: 'Sentiasa mencari pendekatan, peluang dan model pembangunan yang lebih baik.' },
+        ],
+        coKicker: 'KUMPULAN SYARIKAT ESRA',
+        companies: [
+            { name: 'ESRA HARTANAH', b: 'Jualan, Pemasaran & Pelaburan Hartanah' },
+            { name: 'ESRA PROPERTY', b: 'Pengurusan Hartanah, Aset & Projek' },
+            { name: 'ESRA DEVELOPMENT', b: 'Pembangunan Tanah & Hartanah' },
+            { name: 'ESRA LAND CONSULTING', b: 'Nasihat Tanah, Kebolehlaksanaan & Konsultansi Pembangunan' },
+        ],
+        bannerL1: 'Kami bukan sekadar membangunkan tanah.', bannerL2: 'Kami mencipta nilai, peluang dan komuniti untuk generasi akan datang.',
+    },
+    en: {
+        aboutKicker: 'ABOUT ESRA GROUP',
+        aboutTitle1: 'Building Land. Creating Value.', aboutTitle2: 'Shaping Communities.',
+        aboutP1: 'ESRA GROUP is a group of companies focused on land, property, development and development-related services.',
+        aboutP2: 'We see every piece of land not merely as an asset, but as an opportunity to create value, development and long-term growth.',
+        aboutP3: 'Through a strategic approach, ESRA connects the entire property ecosystem — from land identification, acquisition and Joint Venture (JV), feasibility studies, development planning and project delivery through to property marketing and management.',
+        aboutP4: 'ESRA was built with the aim of becoming an organisation that does more than develop projects — one that builds long-term relationships with landowners, buyers, investors, strategic partners and communities.',
+        aboutP5: 'We believe good development must create value for every party — the landowner, the customer, the investor, the community and the generations to come.',
+        visionKicker: 'OUR VISION', visionTitle: 'To Build Value That Lasts.',
+        visionP1: 'To be a trusted, progressive and sustainable land and property development group, known for our ability to identify land potential and convert it into development that delivers long-term value.',
+        visionP2: 'We aim to build ESRA into an integrated property and development group with a portfolio of land, projects and assets across Malaysia.',
+        missionKicker: 'OUR MISSION',
+        mission: [
+            { t: 'Unlock Land Potential', b: 'Identifying and unlocking land potential through research, planning and the right development strategy.' },
+            { t: 'Create Sustainable Value', b: 'Delivering projects that create economic value and long-term benefit for landowners, customers, investors and communities.' },
+            { t: 'Build Trusted Partnerships', b: 'Building long-term relationships with landowners, strategic partners, professionals, contractors and investors.' },
+            { t: 'Deliver Quality Developments', b: 'Managing and developing projects professionally with attention to quality, planning, cost and execution.' },
+            { t: 'Grow a Strong Land & Property Ecosystem', b: 'Building an ESRA ecosystem that connects land, property, development, consultancy, investment and related services.' },
+            { t: 'Build for Future Generations', b: 'Creating developments and assets that keep delivering value to the community and the generations to come.' },
+        ],
+        purposeKicker: 'OUR PURPOSE',
+        purposeTitle1: 'Turning Land Into Opportunity.', purposeTitle2: 'Turning Opportunity Into Value.',
+        purposeP1: 'ESRA exists to help land reach its best potential and produce development that carries real value.',
+        purposeP2: 'We want to be the bridge between:',
+        promiseKicker: 'OUR BRAND PROMISE', promiseTitle: 'Professional. Trusted. Progressive.',
+        promiseSub: 'Every ESRA project is built on three core principles:',
+        promise: [
+            { t: 'Professional', b: 'Managing every opportunity and project with system, structure and professional discipline.' },
+            { t: 'Trusted', b: 'Safeguarding the trust of landowners, customers, investors and partners.' },
+            { t: 'Progressive', b: 'Always seeking better approaches, opportunities and development models.' },
+        ],
+        coKicker: 'ESRA GROUP OF COMPANIES',
+        companies: [
+            { name: 'ESRA HARTANAH', b: 'Property Sales, Marketing & Investment' },
+            { name: 'ESRA PROPERTY', b: 'Property, Asset & Project Management' },
+            { name: 'ESRA DEVELOPMENT', b: 'Land & Property Development' },
+            { name: 'ESRA LAND CONSULTING', b: 'Land Advisory, Feasibility & Development Consultancy' },
+        ],
+        bannerL1: "We don't just develop land.", bannerL2: 'We create value, opportunities and communities for generations.',
+    },
+};
+
+window.esraAbout = (lang) => ESRA_ABOUT[lang];
+
 document.addEventListener('alpine:init', () => {
     Alpine.data('esraLang', () => ({
         lang: localStorage.getItem('esra_lang') || 'bm',

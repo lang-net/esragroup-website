@@ -10,7 +10,7 @@
                 <span x-text="lang === 'en' ? 'Home' : 'Utama'"></span>
                 <span class="block h-0.5 w-5 bg-gold"></span>
             </a>
-            <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'About' : 'Tentang Kami'"></span></a>
+            <a href="{{ route('about') }}" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'About' : 'Tentang Kami'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Projects' : 'Projek'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Landowners' : 'Pemilik Tanah'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Join ESRA' : 'Sertai ESRA'"></span></a>
