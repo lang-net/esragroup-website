@@ -5,12 +5,25 @@
             <span class="text-[11px] font-medium tracking-[0.34em] text-gold">GROUP</span>
         </a>
 
+        @php
+            $navLink = fn (bool $active) => $active
+                ? 'flex flex-col items-center gap-1 text-sm font-semibold text-gold'
+                : 'text-sm text-[#e3ebfa] hover:text-white';
+        @endphp
+
         <nav class="ml-auto hidden items-center gap-6 lg:flex">
-            <a href="{{ route('home') }}#top" class="flex flex-col items-center gap-1 text-sm font-semibold text-gold">
+            <a href="{{ route('home') }}#top" class="{{ $navLink(request()->routeIs('home')) }}">
                 <span x-text="lang === 'en' ? 'Home' : 'Utama'"></span>
-                <span class="block h-0.5 w-5 bg-gold"></span>
+                @if (request()->routeIs('home'))
+                    <span class="block h-0.5 w-5 bg-gold"></span>
+                @endif
             </a>
-            <a href="{{ route('about') }}" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'About' : 'Tentang Kami'"></span></a>
+            <a href="{{ route('about') }}" class="{{ $navLink(request()->routeIs('about')) }}">
+                <span x-text="lang === 'en' ? 'About' : 'Tentang Kami'"></span>
+                @if (request()->routeIs('about'))
+                    <span class="block h-0.5 w-5 bg-gold"></span>
+                @endif
+            </a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Projects' : 'Projek'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Landowners' : 'Pemilik Tanah'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Join ESRA' : 'Sertai ESRA'"></span></a>
