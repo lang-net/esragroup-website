@@ -14,10 +14,10 @@
     @include('partials.navbar')
 
     {{-- HERO --}}
-    <section class="relative overflow-hidden bg-navy-900">
+    <section class="relative overflow-hidden bg-[#0f2451]">
         <div class="absolute inset-y-0 right-0 z-0 hidden w-[60%] sm:block">
             <img src="{{ asset('images/hub-hero.webp') }}" alt="ESRA development" class="h-full w-full object-cover">
-            <div class="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/80 to-navy-900/20"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-[#0f2451] via-[#0f2451]/80 to-[#0f2451]/20"></div>
         </div>
         <div class="container-esra relative z-10 py-12">
             <div class="max-w-lg" data-reveal>
