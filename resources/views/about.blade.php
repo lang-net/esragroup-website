@@ -36,11 +36,11 @@
         </div>
     </section>
 
-    {{-- VISION + MISSION (sticky scroll-spy) --}}
-    <section class="bg-white py-14" x-data="esraMissionSpy()">
-        <div class="container-esra grid grid-cols-1 gap-8 lg:grid-cols-2">
+    {{-- VISION + MISSION (whole section pinned, only indicator animates) --}}
+    <section class="relative bg-white" x-data="esraMissionPin(6)" x-ref="track" style="height: 420vh">
+        <div class="sticky top-0 flex min-h-screen items-center py-10">
+            <div class="container-esra grid grid-cols-1 gap-8 lg:grid-cols-2">
 
-            <div class="lg:sticky lg:top-24 lg:self-start">
                 <div class="rounded-2xl bg-navy p-8 text-white shadow-[0_20px_44px_rgba(6,58,145,0.22)]">
                     <span class="text-[13px] font-bold tracking-widest text-[#9db2d8]" x-text="esraAbout(lang).visionKicker"></span>
                     <h2 class="mt-3 text-2xl font-extrabold leading-snug sm:text-3xl" x-text="esraAbout(lang).visionTitle"></h2>
@@ -56,22 +56,19 @@
                         <span x-text="(active + 1) + ' / ' + esraAbout(lang).mission.length"></span>
                     </div>
                     <div class="mt-2 h-1 w-full overflow-hidden rounded-full bg-white/15">
-                        <div class="h-full rounded-full bg-gold transition-all duration-500 ease-out"
+                        <div class="h-full rounded-full bg-gold transition-all duration-300 ease-out"
                              :style="`width: ${((active + 1) / esraAbout(lang).mission.length) * 100}%`"></div>
                     </div>
                 </div>
-            </div>
 
-            <div class="relative flex flex-col pl-7">
-                <div class="absolute bottom-[8%] left-[7px] top-[8%] w-px bg-border"></div>
+                <div class="relative flex flex-col justify-center gap-2 pl-7">
+                    <div class="absolute bottom-3 left-[7px] top-3 w-px bg-border"></div>
+                    <div class="absolute left-[3px] w-2 h-2 rounded-full bg-gold transition-all duration-300 ease-out"
+                         :style="`top: calc(${(active / (esraAbout(lang).mission.length - 1)) * 100}% - ${(active / (esraAbout(lang).mission.length - 1)) * 8}px)`"></div>
 
-                <template x-for="(m, i) in esraAbout(lang).mission" :key="i">
-                    <div :data-mission-item="i"
-                         class="relative flex min-h-[55vh] flex-col justify-center sm:min-h-[65vh]">
-                        <div class="rounded-xl border p-4 transition-all duration-400"
+                    <template x-for="(m, i) in esraAbout(lang).mission" :key="i">
+                        <div class="relative rounded-xl border p-4 transition-all duration-300"
                              :class="active === i ? 'border-navy bg-navy-50 shadow-[0_10px_24px_rgba(6,58,145,0.12)]' : 'border-transparent'">
-                            <span class="absolute -left-7 top-4 flex h-4 w-4 items-center justify-center rounded-full ring-4 ring-white transition-colors duration-300"
-                                  :class="active === i ? 'bg-gold' : 'bg-border'"></span>
                             <div class="flex items-start gap-3">
                                 <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold transition-colors duration-300"
                                       :class="active === i ? 'bg-gold text-navy' : 'bg-navy-50 text-navy'"
@@ -88,8 +85,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </template>
+                    </template>
+                </div>
             </div>
         </div>
     </section>

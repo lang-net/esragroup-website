@@ -161,27 +161,25 @@ document.addEventListener('alpine:init', () => {
         },
     }));
 
-    Alpine.data('esraMissionSpy', () => ({
+    Alpine.data('esraMissionPin', (count = 6) => ({
         active: 0,
         init() {
-            this.$nextTick(() => {
-                const items = [...this.$el.querySelectorAll('[data-mission-item]')].sort(
-                    (a, b) => Number(a.getAttribute('data-mission-item')) - Number(b.getAttribute('data-mission-item'))
-                );
-                if (!items.length) return;
-
-                const io = new IntersectionObserver(
-                    (entries) => {
-                        entries.forEach((entry) => {
-                            if (entry.isIntersecting) {
-                                this.active = Number(entry.target.getAttribute('data-mission-item'));
-                            }
-                        });
-                    },
-                    { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
-                );
-                items.forEach((el) => io.observe(el));
-            });
+            const track = this.$el;
+            const onScroll = () => {
+                const rect = track.getBoundingClientRect();
+                const vh = window.innerHeight;
+                const total = rect.height - vh;
+                if (total <= 0) {
+                    this.active = 0;
+                    return;
+                }
+                const scrolled = Math.max(0, Math.min(-rect.top, total));
+                const p = scrolled / total;
+                this.active = Math.min(count - 1, Math.floor(p * count));
+            };
+            window.addEventListener('scroll', onScroll, { passive: true });
+            window.addEventListener('resize', onScroll);
+            onScroll();
         },
     }));
 });
