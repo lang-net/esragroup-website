@@ -36,29 +36,56 @@
         </div>
     </section>
 
-    {{-- VISION --}}
-    <section class="bg-surface py-14">
-        <div class="container-esra max-w-2xl text-center" data-reveal>
-            <span class="text-[13px] font-bold tracking-widest text-navy" x-text="esraAbout(lang).visionKicker"></span>
-            <h2 class="mt-3 text-2xl font-extrabold text-navy sm:text-3xl" x-text="esraAbout(lang).visionTitle"></h2>
-            <p class="mt-4 text-[13.5px] leading-relaxed text-body" x-text="esraAbout(lang).visionP1"></p>
-            <p class="mt-3 text-[13.5px] leading-relaxed text-body" x-text="esraAbout(lang).visionP2"></p>
-        </div>
-    </section>
+    {{-- VISION + MISSION (sticky scroll-spy) --}}
+    <section class="bg-white py-14" x-data="esraMissionSpy()">
+        <div class="container-esra grid grid-cols-1 gap-8 lg:grid-cols-2">
 
-    {{-- MISSION --}}
-    <section class="bg-white py-14">
-        <div class="container-esra">
-            <div class="section-kicker">
-                <h2 x-text="esraAbout(lang).missionKicker"></h2>
-                <span></span>
+            <div class="lg:sticky lg:top-24 lg:self-start">
+                <div class="rounded-2xl bg-navy p-8 text-white shadow-[0_20px_44px_rgba(6,58,145,0.22)]">
+                    <span class="text-[13px] font-bold tracking-widest text-[#9db2d8]" x-text="esraAbout(lang).visionKicker"></span>
+                    <h2 class="mt-3 text-2xl font-extrabold leading-snug sm:text-3xl" x-text="esraAbout(lang).visionTitle"></h2>
+
+                    <div class="mt-5 flex h-11 w-11 items-center justify-center rounded-full border border-white/40">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.4"><path d="M3 12s3.5-7 9-7 9 7 9 7-3.5 7-9 7-9-7-9-7Z"></path><circle cx="12" cy="12" r="2.6"></circle></svg>
+                    </div>
+                    <p class="mt-4 text-[13.5px] leading-relaxed text-[#dbe6f8]" x-text="esraAbout(lang).visionP1"></p>
+                    <p class="mt-3 text-[13.5px] leading-relaxed text-[#dbe6f8]" x-text="esraAbout(lang).visionP2"></p>
+
+                    <div class="mt-7 flex items-center justify-between text-[11px] font-bold tracking-widest text-[#9db2d8]">
+                        <span x-text="esraAbout(lang).missionKicker"></span>
+                        <span x-text="(active + 1) + ' / ' + esraAbout(lang).mission.length"></span>
+                    </div>
+                    <div class="mt-2 h-1 w-full overflow-hidden rounded-full bg-white/15">
+                        <div class="h-full rounded-full bg-gold transition-all duration-500 ease-out"
+                             :style="`width: ${((active + 1) / esraAbout(lang).mission.length) * 100}%`"></div>
+                    </div>
+                </div>
             </div>
-            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3" data-reveal>
+
+            <div class="relative flex flex-col gap-3 pl-7">
+                <div class="absolute bottom-2 left-[7px] top-2 w-px bg-border"></div>
+
                 <template x-for="(m, i) in esraAbout(lang).mission" :key="i">
-                    <div class="esra-help-card">
-                        <span class="flex h-9 w-9 items-center justify-center rounded-full bg-navy text-xs font-extrabold text-white" x-text="String(i + 1).padStart(2, '0')"></span>
-                        <h3 class="mt-2 text-[14.5px] font-bold text-navy" x-text="m.t"></h3>
-                        <p class="text-[13px] leading-relaxed text-body" x-text="m.b"></p>
+                    <div :data-mission-item="i"
+                         class="relative rounded-xl border p-4 transition-all duration-400"
+                         :class="active === i ? 'border-navy bg-navy-50 shadow-[0_10px_24px_rgba(6,58,145,0.12)]' : 'border-transparent'">
+                        <span class="absolute -left-7 top-4 flex h-4 w-4 items-center justify-center rounded-full ring-4 ring-white"
+                              :class="active === i ? 'bg-gold' : 'bg-border'"></span>
+                        <div class="flex items-start gap-3">
+                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold transition-colors duration-300"
+                                  :class="active === i ? 'bg-gold text-navy' : 'bg-navy-50 text-navy'"
+                                  x-text="i + 1"></span>
+                            <div>
+                                <h3 class="text-[14.5px] font-bold transition-colors duration-300"
+                                    :class="active === i ? 'text-navy' : 'text-navy-dark/70'"
+                                    x-text="m.t"></h3>
+                                <p x-show="active === i"
+                                   x-transition:enter="transition ease-out duration-300"
+                                   x-transition:enter-start="opacity-0 -translate-y-1"
+                                   x-transition:enter-end="opacity-100 translate-y-0"
+                                   class="mt-1.5 text-[13px] leading-relaxed text-body" x-text="m.b"></p>
+                            </div>
+                        </div>
                     </div>
                 </template>
             </div>

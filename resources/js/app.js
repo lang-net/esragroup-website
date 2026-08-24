@@ -160,6 +160,30 @@ document.addEventListener('alpine:init', () => {
             localStorage.setItem('esra_lang', l);
         },
     }));
+
+    Alpine.data('esraMissionSpy', () => ({
+        active: 0,
+        init() {
+            this.$nextTick(() => {
+                const items = [...this.$el.querySelectorAll('[data-mission-item]')].sort(
+                    (a, b) => Number(a.getAttribute('data-mission-item')) - Number(b.getAttribute('data-mission-item'))
+                );
+                if (!items.length) return;
+
+                const io = new IntersectionObserver(
+                    (entries) => {
+                        entries.forEach((entry) => {
+                            if (entry.isIntersecting) {
+                                this.active = Number(entry.target.getAttribute('data-mission-item'));
+                            }
+                        });
+                    },
+                    { rootMargin: '-40% 0px -40% 0px', threshold: 0 }
+                );
+                items.forEach((el) => io.observe(el));
+            });
+        },
+    }));
 });
 
 Alpine.start();
