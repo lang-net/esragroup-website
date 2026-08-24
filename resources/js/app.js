@@ -152,6 +152,57 @@ const ESRA_ABOUT = {
 
 window.esraAbout = (lang) => ESRA_ABOUT[lang];
 
+const ESRA_STATES = [
+    { name: 'Pulau Pinang', flag: 'flag-penang', areas: ['George Town', 'Jelutong', 'Ayer Itam', 'Gelugor', 'Pulau Tikus', 'Tanjung Tokong', 'Tanjung Bungah', 'Batu Ferringhi', 'Bayan Lepas', 'Bayan Baru', 'Sungai Ara', 'Relau', 'Sungai Nibong', 'Batu Maung', 'Balik Pulau', 'Teluk Kumbar', 'Seberang Perai'], live: [] },
+    { name: 'Kedah', flag: 'flag-kedah', areas: ['Alor Setar', 'Sungai Petani', 'Kulim', 'Jitra', 'Langkawi', 'Baling', 'Gurun', 'Bedong', 'Padang Serai', 'Lunas', 'Changlun', 'Pendang', 'Yan', 'Kuala Nerang', 'Sik', 'Bandar Baharu', 'Merbok', 'Kodiang'], live: [] },
+    { name: 'Perak', flag: 'flag-perak', areas: ['Ipoh', 'Taiping', 'Teluk Intan', 'Sitiawan', 'Batu Gajah', 'Kuala Kangsar', 'Kampar', 'Seri Iskandar', 'Bota', 'Lumut', 'Parit Buntar', 'Bagan Serai', 'Tapah', 'Kuala Sepetang', 'Gerik'], live: ['Bota'] },
+    { name: 'Perlis', flag: 'flag-perlis', areas: ['Kangar', 'Arau', 'Padang Besar', 'Kuala Perlis', 'Kaki Bukit', 'Simpang Empat'], live: [] },
+    { name: 'Selangor', flag: 'flag-selangor', areas: ['Shah Alam', 'Petaling Jaya', 'Subang Jaya', 'Klang', 'Puchong', 'Kajang', 'Bangi', 'Cyberjaya', 'Rawang', 'Selayang', 'Ampang', 'Sungai Buloh', 'Seri Kembangan', 'Kota Damansara', 'Sepang'], live: [] },
+    { name: 'Melaka', flag: 'flag-melaka', areas: ['Melaka City', 'Ayer Keroh', 'Bukit Beruang', 'Batu Berendam', 'Klebang', 'Alor Gajah', 'Masjid Tanah', 'Jasin', 'Merlimau', 'Sungai Udang'], live: [] },
+    { name: 'Johor', flag: 'flag-johor', areas: ['Johor Bahru', 'Iskandar Puteri', 'Pasir Gudang', 'Skudai', 'Kulai', 'Ulu Tiram', 'Senai', 'Batu Pahat', 'Muar', 'Kluang', 'Segamat', 'Pontian', 'Kota Tinggi', 'Tangkak', 'Mersing'], live: [] },
+    { name: 'Negeri Sembilan', flag: 'flag-ns', areas: ['Seremban', 'Nilai', 'Port Dickson', 'Senawang', 'Kuala Pilah', 'Bahau', 'Tampin', 'Rembau', 'Jelebu', 'Kuala Klawang', 'Labu', 'Gemas'], live: [] },
+    { name: 'Pahang', flag: 'flag-pahang', areas: ['Kuantan', 'Temerloh', 'Bentong', 'Raub', 'Pekan', 'Jerantut', 'Mentakab', 'Bera', 'Cameron Highlands', 'Kuala Lipis', 'Maran', 'Rompin'], live: [] },
+    { name: 'Terengganu', flag: 'flag-terengganu', areas: ['Kuala Terengganu', 'Kuala Nerus', 'Kemaman', 'Chukai', 'Kerteh', 'Dungun', 'Paka', 'Marang', 'Jerteh', 'Besut', 'Setiu', 'Kuala Berang'], live: [] },
+    { name: 'Kelantan', flag: 'flag-kelantan', areas: ['Kota Bharu', 'Kubang Kerian', 'Wakaf Che Yeh', 'Pengkalan Chepa', 'Pasir Mas', 'Bachok', 'Tumpat', 'Tanah Merah', 'Pasir Puteh', 'Machang'], live: [] },
+    { name: 'Kuala Lumpur', flag: 'flag-kl', areas: ['KLCC', 'Bukit Bintang', 'Bangsar', 'Mont Kiara', 'Cheras', 'Setapak', 'Wangsa Maju', 'Kepong', 'Sri Petaling', 'Old Klang Road'], live: [] },
+    { name: 'Putrajaya', flag: 'flag-putrajaya', areas: ['Putrajaya', 'Presint 1', 'Presint 2', 'Presint 3', 'Presint 8', 'Presint 9', 'Presint 11', 'Presint 15', 'Presint 16', 'Presint 18', 'Presint 19'], live: [] },
+    { name: 'Sabah', flag: 'flag-sabah', areas: ['Kota Kinabalu', 'Penampang', 'Putatan', 'Tawau', 'Sandakan', 'Lahad Datu', 'Keningau', 'Semporna', 'Papar', 'Tuaran'], live: [] },
+    { name: 'Sarawak', flag: 'flag-sarawak', areas: ['Kuching', 'Miri', 'Sibu', 'Bintulu', 'Samarahan', 'Serian', 'Sarikei', 'Sri Aman'], live: [] },
+];
+
+const ESRA_PROJECTS = [
+    { name: 'Taman Alor Pasir Indah', loc: 'Alor Pasir, Bota, Perak', price: 'RM119,000', size: '3,000 kps', badge: 'LIMITED LOT', badgeBg: '#0a2f77' },
+    { name: 'Taman Sri Rumbia', loc: 'Rumbia, Bota, Perak', price: 'RM128,000', size: '3,200 kps', badge: 'BARU DIBUKA', badgeBg: '#1f8a4c' },
+    { name: 'Taman Cahaya Bota', loc: 'Bota Kanan, Bota, Perak', price: 'RM135,000', size: '3,000 kps', badge: 'POPULAR', badgeBg: '#f0b429', badgeFg: '#0b2a63' },
+    { name: 'Taman Harmoni Bota', loc: 'Pusing, Bota, Perak', price: 'RM149,000', size: '3,500 kps', badge: 'SOLD 70%', badgeBg: '#d33a2c' },
+    { name: 'Taman Bota Mutiara', loc: 'Kampung Gajah, Bota, Perak', price: 'RM159,000', size: '4,000 kps', badge: 'FREEHOLD', badgeBg: '#0f2451' },
+    { name: 'Taman Idaman Bota', loc: 'Changkat Lobak, Bota, Perak', price: 'RM169,000', size: '4,200 kps', badge: 'LIMITED LOT', badgeBg: '#0a2f77' },
+];
+
+document.addEventListener('alpine:init', () => {
+    Alpine.data('esraProjek', () => ({
+        states: ESRA_STATES,
+        pickedState: null,
+        pickedArea: null,
+        pickState(s) {
+            this.pickedState = this.pickedState?.name === s.name ? null : s;
+            this.pickedArea = null;
+        },
+        pickArea(name) {
+            if (!this.pickedState.live.includes(name)) return;
+            this.pickedArea = name;
+            this.$nextTick(() => {
+                const el = document.getElementById('hasil');
+                if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        },
+        get projects() {
+            if (!this.pickedArea) return [];
+            return ESRA_PROJECTS.filter((p) => p.loc.includes(this.pickedArea));
+        },
+    }));
+});
+
 document.addEventListener('alpine:init', () => {
     Alpine.data('esraLang', () => ({
         lang: localStorage.getItem('esra_lang') || 'bm',

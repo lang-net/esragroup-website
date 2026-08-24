@@ -24,7 +24,12 @@
                     <span class="block h-0.5 w-5 bg-gold"></span>
                 @endif
             </a>
-            <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Projects' : 'Projek'"></span></a>
+            <a href="{{ route('projek') }}" class="{{ $navLink(request()->routeIs('projek')) }}">
+                <span x-text="lang === 'en' ? 'Projects' : 'Projek'"></span>
+                @if (request()->routeIs('projek'))
+                    <span class="block h-0.5 w-5 bg-gold"></span>
+                @endif
+            </a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Landowners' : 'Pemilik Tanah'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Join ESRA' : 'Sertai ESRA'"></span></a>
             <a href="#" class="text-sm text-[#e3ebfa] hover:text-white"><span x-text="lang === 'en' ? 'Insights' : 'Insights'"></span></a>
