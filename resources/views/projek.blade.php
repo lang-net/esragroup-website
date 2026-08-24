@@ -86,7 +86,7 @@
 
             {{-- STEP 1: STATE --}}
             <div class="overflow-hidden rounded-lg border border-border bg-white">
-                <div class="flex items-center justify-between bg-navy px-5 py-3">
+                <div class="flex items-center justify-between bg-[#0f2451] px-5 py-3">
                     <div class="flex items-center gap-2.5">
                         <span class="flex h-6 w-6 items-center justify-center rounded-full border border-white/50 text-[11px] font-bold text-white">1</span>
                         <span class="text-[12px] font-bold tracking-widest text-white" x-text="lang === 'en' ? 'CHOOSE A STATE' : 'PILIH NEGERI'"></span>
@@ -112,7 +112,7 @@
 
             {{-- STEP 2: AREA --}}
             <div x-show="pickedState" x-cloak class="mt-5 overflow-hidden rounded-lg border border-border bg-white">
-                <div class="flex items-center justify-between bg-navy-dark px-5 py-3">
+                <div class="flex items-center justify-between bg-[#0f2451] px-5 py-3">
                     <div class="flex items-center gap-2.5">
                         <span class="flex h-6 w-6 items-center justify-center rounded-full bg-gold text-[11px] font-bold text-navy">2</span>
                         <span class="text-[12px] font-bold tracking-widest text-white"
