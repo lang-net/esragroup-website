@@ -132,13 +132,42 @@
         <div class="container-esra" data-reveal>
             <span class="text-[13px] font-bold tracking-widest text-navy" x-text="esraAbout(lang).coKicker"></span>
             <div class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-                <template x-for="(c, i) in esraAbout(lang).companies" :key="i">
-                    <div class="flex flex-col gap-3.5 rounded-md border border-border bg-white p-5">
-                        <h3 class="text-[15.5px] font-extrabold leading-snug text-navy" x-text="c.name"></h3>
-                        <p class="text-[13px] leading-relaxed text-body" x-text="c.b"></p>
-                        <span class="mt-auto block h-[2.5px] w-9 bg-navy"></span>
+                @php
+                    $companyMeta = [
+                        [
+                            'accent' => '#063A91',
+                            'bg' => '#eef1fb',
+                            'icon' => '<rect x="3" y="6" width="8" height="15"></rect><rect x="13" y="3" width="8" height="18"></rect><path d="M5.5 10h3M5.5 14h3M15.5 7h3M15.5 11h3M15.5 15h3"></path>',
+                        ],
+                        [
+                            'accent' => '#0f8a86',
+                            'bg' => '#eaf6f5',
+                            'icon' => '<rect x="6" y="3" width="12" height="18"></rect><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"></path>',
+                        ],
+                        [
+                            'accent' => '#d98016',
+                            'bg' => '#fdf1e3',
+                            'icon' => '<path d="M4 21V5l14 3"></path><path d="M18 8v4M4 5h3M9 21v-6h6v6"></path>',
+                        ],
+                        [
+                            'accent' => '#6d4bb5',
+                            'bg' => '#f1ecfa',
+                            'icon' => '<path d="M3 6.5 9 4.5l6 2 6-2v11l-6 2-6-2-6 2z"></path><path d="M9 4.5v11M15 6.5v11"></path><circle cx="12.5" cy="12" r="3.4"></circle><path d="m15 14.5 3 3"></path>',
+                        ],
+                    ];
+                @endphp
+                @foreach ($companyMeta as $i => $meta)
+                    <div class="flex flex-col gap-3.5 rounded-lg border border-border bg-white p-5">
+                        <div class="flex items-start gap-3.5">
+                            <span class="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg" style="background: {{ $meta['bg'] }}">
+                                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="{{ $meta['accent'] }}" stroke-width="1.3">{!! $meta['icon'] !!}</svg>
+                            </span>
+                            <h3 class="flex-1 text-[15.5px] font-extrabold leading-snug text-navy" x-text="esraAbout(lang).companies[{{ $i }}].name"></h3>
+                        </div>
+                        <p class="text-[13px] leading-relaxed text-body" x-text="esraAbout(lang).companies[{{ $i }}].b"></p>
+                        <span class="mt-auto block h-[2.5px] w-9" style="background: {{ $meta['accent'] }}"></span>
                     </div>
-                </template>
+                @endforeach
             </div>
         </div>
     </section>
