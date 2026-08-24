@@ -62,28 +62,30 @@
                 </div>
             </div>
 
-            <div class="relative flex flex-col gap-3 pl-7">
-                <div class="absolute bottom-2 left-[7px] top-2 w-px bg-border"></div>
+            <div class="relative flex flex-col pl-7">
+                <div class="absolute bottom-[8%] left-[7px] top-[8%] w-px bg-border"></div>
 
                 <template x-for="(m, i) in esraAbout(lang).mission" :key="i">
                     <div :data-mission-item="i"
-                         class="relative rounded-xl border p-4 transition-all duration-400"
-                         :class="active === i ? 'border-navy bg-navy-50 shadow-[0_10px_24px_rgba(6,58,145,0.12)]' : 'border-transparent'">
-                        <span class="absolute -left-7 top-4 flex h-4 w-4 items-center justify-center rounded-full ring-4 ring-white"
-                              :class="active === i ? 'bg-gold' : 'bg-border'"></span>
-                        <div class="flex items-start gap-3">
-                            <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold transition-colors duration-300"
-                                  :class="active === i ? 'bg-gold text-navy' : 'bg-navy-50 text-navy'"
-                                  x-text="i + 1"></span>
-                            <div>
-                                <h3 class="text-[14.5px] font-bold transition-colors duration-300"
-                                    :class="active === i ? 'text-navy' : 'text-navy-dark/70'"
-                                    x-text="m.t"></h3>
-                                <p x-show="active === i"
-                                   x-transition:enter="transition ease-out duration-300"
-                                   x-transition:enter-start="opacity-0 -translate-y-1"
-                                   x-transition:enter-end="opacity-100 translate-y-0"
-                                   class="mt-1.5 text-[13px] leading-relaxed text-body" x-text="m.b"></p>
+                         class="relative flex min-h-[55vh] flex-col justify-center sm:min-h-[65vh]">
+                        <div class="rounded-xl border p-4 transition-all duration-400"
+                             :class="active === i ? 'border-navy bg-navy-50 shadow-[0_10px_24px_rgba(6,58,145,0.12)]' : 'border-transparent'">
+                            <span class="absolute -left-7 top-4 flex h-4 w-4 items-center justify-center rounded-full ring-4 ring-white transition-colors duration-300"
+                                  :class="active === i ? 'bg-gold' : 'bg-border'"></span>
+                            <div class="flex items-start gap-3">
+                                <span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full text-xs font-extrabold transition-colors duration-300"
+                                      :class="active === i ? 'bg-gold text-navy' : 'bg-navy-50 text-navy'"
+                                      x-text="i + 1"></span>
+                                <div>
+                                    <h3 class="text-[14.5px] font-bold transition-colors duration-300"
+                                        :class="active === i ? 'text-navy' : 'text-navy-dark/70'"
+                                        x-text="m.t"></h3>
+                                    <p x-show="active === i"
+                                       x-transition:enter="transition ease-out duration-300"
+                                       x-transition:enter-start="opacity-0 -translate-y-1"
+                                       x-transition:enter-end="opacity-100 translate-y-0"
+                                       class="mt-1.5 text-[13px] leading-relaxed text-body" x-text="m.b"></p>
+                                </div>
                             </div>
                         </div>
                     </div>
